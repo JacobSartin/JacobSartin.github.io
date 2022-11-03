@@ -1,8 +1,8 @@
-document.getElementById("cards").onmousemove = e => {
+document.getElementById("cards").onmousemove = ev => {
     for(const card of document.getElementsByClassName("card")) {
       const rect = card.getBoundingClientRect(),
-            x = e.clientX - rect.left,
-            y = e.clientY - rect.top;
+            x = ev.clientX - rect.left,
+            y = ev.clientY - rect.top;
   
       card.style.setProperty("--mouse-x", `${x}px`);
       card.style.setProperty("--mouse-y", `${y}px`);
