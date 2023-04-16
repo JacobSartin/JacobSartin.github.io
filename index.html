@@ -10,11 +10,13 @@
 
 <body>
     <div id="cards">
-        <div class="card" onClick="openURLInNewTab()">
+        <button type="button" class="card" onClick="openURLInNewTab()">
             <div class="card-content">
+
                 <div class="card-image">
                     <i class="fa-solid fa-window-restore"></i>
                 </div>
+
                 <div class="card-info-wrapper">
                     <div class="card-info">
                         <i class="fa-solid fa-window-restore"></i>
@@ -24,13 +26,17 @@
                         </div>
                     </div>
                 </div>
+
             </div>
-        </div>
-        <div class="card">
+        </button>
+
+        <button type="button" class="card">
             <div class="card-content">
+
                 <div class="card-image">
                     <i class="fa-solid fa-chess-knight"></i>
                 </div>
+
                 <div class="card-info-wrapper">
                     <div class="card-info">
                         <i class="fa-solid fa-chess-knight"></i>
@@ -40,13 +46,17 @@
                         </div>
                     </div>
                 </div>
+
             </div>
-        </div>
-        <div class="card">
+        </button>
+
+        <button type="button" class="card">
             <div class="card-content">
+
                 <div class="card-image">
                     <i class="fa-regular fa-folder-open"></i>
                 </div>
+
                 <div class="card-info-wrapper">
                     <div class="card-info">
                         <i class="fa-regular fa-folder-open"></i>
@@ -56,13 +66,17 @@
                         </div>
                     </div>
                 </div>
+
             </div>
-        </div>
-        <div class="card" onclick="closeTab()">
+        </button>
+
+        <button type="button" class="card" onclick="closeTab()">
             <div class="card-content">
+
                 <div class="card-image">
                     <i class="fa-solid fa-hand-peace"></i>
                 </div>
+
                 <div class="card-info-wrapper">
                     <div class="card-info">
                         <i class="fa-solid fa-hand-peace"></i>
@@ -72,13 +86,17 @@
                         </div>
                     </div>
                 </div>
+
             </div>
-        </div>
-        <div class="card" onclick="copyURLToClipboard()">
+        </button>
+
+        <button type="button" class="card" onclick="copyURLToClipboard()">
             <div class="card-content">
+
                 <div class="card-image">
                     <i class="fa-regular fa-copy"></i>
                 </div>
+
                 <div class="card-info-wrapper">
                     <div class="card-info">
                         <i class="fa-regular fa-copy"></i>
@@ -88,13 +106,17 @@
                         </div>
                     </div>
                 </div>
+
             </div>
-        </div>
-        <div class="card">
+        </button>
+
+        <button type="button" class="card">
             <div class="card-content">
+
                 <div class="card-image">
                     <i class="fa-solid fa-otter"></i>
                 </div>
+
                 <div class="card-info-wrapper">
                     <div class="card-info">
                         <i class="fa-solid fa-otter"></i>
@@ -104,8 +126,9 @@
                         </div>
                     </div>
                 </div>
+                
             </div>
-        </div>
+        </button>
     </div>
 
     <!--load the javascript after all the elements have been defined-->
@@ -113,7 +136,7 @@
 
     <a id="source-link" class="link" href="https://linear.app/features" target="_blank">
         <i class="fa-solid fa-link"></i>
-        <span class="roboto-mono">Source</span>
+        <span>Source</span>
     </a>
 
     <a id="youtube-link" class="link" href="https://youtu.be/htGfnF1zN4g" target="_blank">
