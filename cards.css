@@ -4,24 +4,26 @@
   --accent-color: rgb(105, 0, 200);
 }
 
+:focus {
+  /* remove default focus styles (required for some browsers like edge) and replace with themed style */
+  outline: none;
+  outline: var(--accent-color) 4px solid;
+}
+
 body {
   align-items: center;
   background-color: var(--bg-color);
   display: flex;
   height: 100vh;
   justify-content: center;
-  margin: 0px;
-  overflow: hidden;
+  margin: 0px;  
   padding: 0px;
+  overflow: hidden;
 }
 
 button {
   all: unset;
   cursor: pointer;
-}
-
-button:focus {
-  outline: var(--accent-color) 5px auto;
 }
 
 #cards {
@@ -39,11 +41,10 @@ button:focus {
 .card {
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
-  cursor: pointer;
   display: flex;
-  height: 260px;
   flex-direction: column;
-  position: relative;
+  position: relative;  
+  height: 260px;
   width: 300px;
 }
 
@@ -120,30 +121,31 @@ i {
   opacity: 0.25;
 }
 
-.card-info-wrapper {
-  align-items: center;
+/* -- ↓ ↓ ↓ card info styles ↓ ↓ ↓ -- */
+.card-info {
   display: grid;
   /*flex-grow: 1;*/
+  flex-direction: column;
   justify-content: flex-start;  
-  align-items: end;
+  align-items: flex-start;
   padding: 0px 20px;  
   gap: 0px 10px;
 }
 
-.card-info-wrapper>i {
+.card-info>i {
   grid-column: 1;
   font-size: 1em;
   height: 20px;
   line-height: 20px;
 }
 
-.card-info-wrapper>h3 {
+.card-info>h3 {
   grid-column: 2;
   font-size: 1.1em;
   line-height: 20px;
 }
 
-.card-info-wrapper>h4 {
+.card-info>h4 {
   grid-column: 2;
   color: rgba(255, 255, 255, 0.5);
   font-size: 0.85em;
@@ -202,19 +204,20 @@ i {
     font-size: 3em;
   }
 
-  .card-info-wrapper {
+  .card-info {
     padding: 0px 10px;
   }
 
   .card-info>i {
+    
     font-size: 0.8em;
   }
 
-  .card-info-title>h3 {
+  .card-info>h3 {
     font-size: 0.9em;
   }
 
-  .card-info-title>h4 {
+  .card-info>h4 {
     font-size: 0.8em;
     margin-top: 4px;
   }
