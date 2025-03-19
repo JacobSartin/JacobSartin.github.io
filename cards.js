@@ -1,35 +1,40 @@
-document.getElementById("cards").onmousemove = ev => {
-    for(const card of document.getElementsByClassName("card")) {
-      const rect = card.getBoundingClientRect(),
-            x = ev.clientX - rect.left,
-            y = ev.clientY - rect.top;
-  
-      card.style.setProperty("--mouse-x", `${x}px`);
-      card.style.setProperty("--mouse-y", `${y}px`);
-    }
-  };
+document.getElementById("cards").onmousemove = (ev) => {
+  for (const card of document.getElementsByClassName("card")) {
+    const rect = card.getBoundingClientRect(),
+      x = ev.clientX - rect.left,
+      y = ev.clientY - rect.top;
 
-  //create a function copyToClipboard that copies the url to the user's clipboard
-  function copyURLToClipboard() {
-    //get the url
-    var url = window.location.href;
-
-    //copy the url to the clipboard
-    navigator.clipboard.writeText(url);
-
-    //alert the user that the url has been copied
-    alert("Copied the url: " + url);
+    card.style.setProperty("--mouse-x", `${x}px`);
+    card.style.setProperty("--mouse-y", `${y}px`);
   }
+};
 
-  //create a function that will open the url in a new tab
-  function openURLInNewTab() {
-    //get the url
-    var url = window.location.href;
+export function copyURLToClipboard() {
+  const url = window.location.href;
+  navigator.clipboard
+    .writeText(url)
+    .then(() => alert("Copied the url: " + url))
+    .catch((err) => console.error("Failed to copy URL:", err));
+}
 
-    //open the url in a new tab
-    window.open(url);
-  }
+export function openURLInNewTab() {
+  var url = window.location.href;
+  window.open(url);
+}
 
-  function closeTab() {
-    window.close();
-  }
+export function closeTab() {
+  window.close();
+}
+
+// event listeners for buttons
+document.addEventListener("DOMContentLoaded", () => {
+  document
+    .querySelector('[data-action="duplicate"]')
+    .addEventListener("click", openURLInNewTab);
+  document
+    .querySelector('[data-action="copy"]')
+    .addEventListener("click", copyURLToClipboard);
+  document
+    .querySelector('[data-action="close"]')
+    .addEventListener("click", closeTab);
+});
