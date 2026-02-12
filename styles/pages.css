@@ -1,0 +1,6 @@
+/* Page-specific styles aggregator */
+@import url("theme.css");
+@import url("projects.css");
+@import url("home.css");
+@import url("skills.css");
+@import url("about.css");
