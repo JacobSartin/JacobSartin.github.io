@@ -23,7 +23,6 @@
   font-size: 1.1em;
   line-height: 1.8;
   color: var(--text-secondary);
-  font-family: "JetBrains Mono", sans-serif;
   margin-bottom: 20px;
 }
 
@@ -58,7 +57,6 @@
 
 .interests li {
   color: var(--text-primary);
-  font-family: "JetBrains Mono", sans-serif;
   display: flex;
   align-items: center;
   gap: 10px;
