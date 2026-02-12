@@ -5,7 +5,6 @@
 }
 
 :focus {
-  /* remove default focus styles (required for some browsers like edge) and replace with themed style */
   outline: none;
   outline: var(--accent-color) 4px solid;
 }
@@ -124,8 +123,6 @@ i {
 /* -- ↓ ↓ ↓ card info styles ↓ ↓ ↓ -- */
 .card-info {
   display: grid;
-  /*flex-grow: 1;*/
-  flex-direction: column;
   justify-content: flex-start;  
   align-items: flex-start;
   padding: 0px 20px;  
@@ -165,30 +162,11 @@ i {
     padding: 10px 0px;
   }
 
-  /*#cards {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;  
-      max-width: 916px;
-      width: calc(100% - 20px);
-    }*/
-
   .card {
     flex-shrink: 1;
     max-width: 300px;
     width: calc(50% - 4px);
   }
-
-  /*.card {
-      background-color: rgba(255, 255, 255, 0.1);
-      border-radius: 10px;
-      cursor: pointer;
-      display: flex;
-      height: 260px;
-      flex-direction: column;
-      position: relative;
-      width: 300px;  
-    }*/
 }
 
 @media(max-width: 500px) {

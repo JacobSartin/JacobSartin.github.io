@@ -1,15 +1,17 @@
+const cards = document.getElementsByClassName("card");
+
 document.getElementById("cards").onmousemove = (ev) => {
-  for (const card of document.getElementsByClassName("card")) {
-    const rect = card.getBoundingClientRect(),
-      x = ev.clientX - rect.left,
-      y = ev.clientY - rect.top;
+  for (const card of cards) {
+    const rect = card.getBoundingClientRect();
+    const x = ev.clientX - rect.left;
+    const y = ev.clientY - rect.top;
 
     card.style.setProperty("--mouse-x", `${x}px`);
     card.style.setProperty("--mouse-y", `${y}px`);
   }
 };
 
-export function copyURLToClipboard() {
+function copyURLToClipboard() {
   const url = window.location.href;
   navigator.clipboard
     .writeText(url)
@@ -17,24 +19,27 @@ export function copyURLToClipboard() {
     .catch((err) => console.error("Failed to copy URL:", err));
 }
 
-export function openURLInNewTab() {
-  var url = window.location.href;
+function openURLInNewTab() {
+  const url = window.location.href;
   window.open(url);
 }
 
-export function closeTab() {
+function closeTab() {
   window.close();
 }
 
-// event listeners for buttons
-document.addEventListener("DOMContentLoaded", () => {
-  document
-    .querySelector('[data-action="duplicate"]')
-    .addEventListener("click", openURLInNewTab);
-  document
-    .querySelector('[data-action="copy"]')
-    .addEventListener("click", copyURLToClipboard);
-  document
-    .querySelector('[data-action="close"]')
-    .addEventListener("click", closeTab);
+document.addEventListener("click", (event) => {
+  const card = event.target.closest(".card");
+  if (!card) {
+    return;
+  }
+
+  const action = card.dataset.action;
+  if (action === "duplicate") {
+    openURLInNewTab();
+  } else if (action === "copy") {
+    copyURLToClipboard();
+  } else if (action === "close") {
+    closeTab();
+  }
 });
