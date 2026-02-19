@@ -2,40 +2,6 @@
 /* Theme / CSS Variables */
 /* ===================== */
 :root {
-  /* Base Colors */
-  --bg-primary: rgb(13, 13, 15);
-  --accent: rgb(115, 20, 210);
-  --accent-bright: rgb(150, 60, 240);
-
-  /* Derived Colors */
-  --bg-secondary: rgb(18, 18, 22);
-  --surface: rgb(20, 20, 25);
-  --surface-raised: rgb(26, 26, 32);
-
-  --accent-hover: rgb(140, 50, 235);
-  --accent-muted: rgb(from var(--accent) r g b / 0.6);
-  --accent-glow: rgb(from var(--accent) r g b / 0.2);
-
-  /* Text */
-  --text-primary: rgb(235, 235, 245);
-  --text-secondary: rgb(from var(--text-primary) r g b / 0.55);
-  --text-muted: rgb(from var(--text-primary) r g b / 0.28);
-
-  /* Borders */
-  --border: rgba(255, 255, 255, 0.08);
-  --border-subtle: rgb(from var(--border) r g b / 0.05);
-  --border-hover: rgb(from var(--border) r g b / 0.35);
-  --border-accent: rgba(from var(--accent) r g b / 0.5);
-
-  /* Overlays */
-  --overlay-light: rgba(255, 255, 255, 0.05);
-  --overlay-medium: rgb(from var(--overlay-light) r g b / 0.08);
-
-  /* Shadows */
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2);
-  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4), 0 2px 6px rgba(0, 0, 0, 0.3);
-  --shadow-accent-lg: 0px 6px 24px var(--accent-muted);
-
   /* Spacing scale */
   --space-xs: 4px;
   --space-sm: 8px;
@@ -51,6 +17,116 @@
 
   /* Typography */
   --font-mono: "JetBrains Mono", "Fira Code", monospace;
+  --text-xs: 0.82em;
+  --text-sm: 0.88em;
+  --text-base: 1em;
+  --text-lg: 1.05em;
+
+  /* Transitions */
+  --transition-fast: 180ms ease;
+  --transition-base: 200ms ease;
+  --transition-slow: 400ms ease;
+
+  /* Content widths */
+  --content-sm: 760px;
+  --content-lg: 1600px;
+
+  /* Base colors — everything derives from these */
+  /* TODO Theme picker, pick accent and the rest just works */
+  --accent: oklch(0.475 0.25 300);
+  --accent-bright: oklch(from var(--accent) calc(l + 0.1) c h);
+}
+
+/* ===================== */
+/* Dark Theme (default)  */
+/* ===================== */
+:root,
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --neutral: oklch(0.16 0.01 285);
+  --text-base: oklch(0.95 0.01 285);
+
+  /* Backgrounds (derived from --neutral) */
+  --bg-primary: var(--neutral);
+  --bg-secondary: oklch(from var(--neutral) calc(l + 0.02) c h);
+  --surface: oklch(from var(--neutral) calc(l + 0.03) c h);
+  --surface-raised: oklch(from var(--surface) calc(l + 0.03) c h);
+  --bg-translucent: oklch(from var(--neutral) l c h / 0.75);
+
+  /* Accent variants (derived from --accent / --accent-bright) */
+  --accent-hover: oklch(from var(--accent-bright) calc(l - 0.03) c h);
+  --accent-muted: oklch(from var(--accent) l c h / 0.6);
+  --accent-glow: oklch(from var(--accent) l c h / 0.2);
+  --accent-subtle: oklch(from var(--accent) l c h / 0.12);
+  --accent-wash: oklch(from var(--accent) l c h / 0.06);
+
+  /* Text (derived from --text-base) */
+  --text-primary: var(--text-base);
+  --text-secondary: oklch(from var(--text-base) l c h / 0.55);
+  --text-muted: oklch(from var(--text-base) l c h / 0.28);
+  --text-on-accent: oklch(0.95 0 0);
+
+  /* Borders */
+  --border: oklch(1 0 0 / 0.08);
+  --border-subtle: oklch(from var(--border) l c h / 0.05);
+  --border-hover: oklch(from var(--border) l c h / 0.35);
+  --border-accent: oklch(from var(--accent) l c h / 0.5);
+
+  /* Overlays */
+  --overlay-light: oklch(1 0 0 / 0.05);
+  --overlay-medium: oklch(from var(--overlay-light) l c h / 0.08);
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px oklch(0 0 0 / 0.3), 0 1px 2px oklch(0 0 0 / 0.2);
+  --shadow-md: 0 4px 16px oklch(0 0 0 / 0.4), 0 2px 6px oklch(0 0 0 / 0.3);
+  --shadow-accent-lg: 0px 6px 24px var(--accent-muted);
+}
+
+/* ===================== */
+/* Light Theme           */
+/* ===================== */
+[data-theme="light"] {
+  color-scheme: light;
+
+  /* Base colors — shift lightness for light mode */
+  --neutral: oklch(0.95 0.005 285);
+  --text-base: oklch(0.2 0.01 285);
+
+  /* Backgrounds */
+  --bg-primary: var(--neutral);
+  --bg-secondary: oklch(from var(--neutral) calc(l - 0.02) c h);
+  --surface: oklch(from var(--neutral) calc(l + 0.025) c h);
+  --surface-raised: var(--neutral);
+  --bg-translucent: oklch(from var(--neutral) l c h / 0.85);
+
+  /* Accent variants */
+  --accent-hover: oklch(from var(--accent) calc(l - 0.03) c h);
+  --accent-muted: oklch(from var(--accent) l c h / 0.15);
+  --accent-glow: oklch(from var(--accent) l c h / 0.08);
+  --accent-subtle: oklch(from var(--accent) l c h / 0.06);
+  --accent-wash: oklch(from var(--accent) l c h / 0.03);
+
+  /* Text */
+  --text-primary: var(--text-base);
+  --text-secondary: oklch(from var(--text-base) l c h / 0.65);
+  --text-muted: oklch(from var(--text-base) l c h / 0.45);
+  --text-on-accent: oklch(0.95 0 0);
+
+  /* Borders */
+  --border: oklch(0 0 0 / 0.1);
+  --border-subtle: oklch(from var(--border) l c h / 0.06);
+  --border-hover: oklch(from var(--border) l c h / 0.2);
+  --border-accent: oklch(from var(--accent) l c h / 0.3);
+
+  /* Overlays */
+  --overlay-light: oklch(0 0 0 / 0.03);
+  --overlay-medium: oklch(from var(--overlay-light) l c h / 0.06);
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px oklch(0 0 0 / 0.08), 0 1px 2px oklch(0 0 0 / 0.05);
+  --shadow-md: 0 4px 16px oklch(0 0 0 / 0.1), 0 2px 6px oklch(0 0 0 / 0.06);
+  --shadow-accent-lg: 0px 6px 24px var(--accent-muted);
 }
 
 *,
@@ -77,20 +153,17 @@ body {
   background-image:
     radial-gradient(
       ellipse 80% 50% at 50% -20%,
-      rgb(from var(--accent) r g b / 0.12),
+      var(--accent-subtle),
       transparent
     ),
-    radial-gradient(
-      ellipse 60% 40% at 80% 80%,
-      rgba(80, 0, 160, 0.06),
-      transparent
-    );
+    radial-gradient(ellipse 60% 40% at 80% 80%, var(--accent-wash), transparent);
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   margin: 0;
   padding: 0;
   font-family: var(--font-mono);
+  font-variant-ligatures: none;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -135,9 +208,9 @@ i {
   padding: 9px 18px;
   text-decoration: none;
   transition:
-    background-color 180ms ease,
-    border-color 180ms ease,
-    box-shadow 180ms ease;
+    background-color var(--transition-fast),
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast);
   font-family: var(--font-mono);
   font-size: 0.85em;
   letter-spacing: 0.02em;
@@ -167,6 +240,13 @@ main {
   padding: 20px;
 }
 
+li::marker {
+  color: var(--accent-bright);
+}
+
+/* ===================== */
+/* Global Utilities      */
+/* ===================== */
 .container {
   width: 100%;
   padding: var(--space-xl) var(--space-md);
@@ -184,10 +264,62 @@ main {
   margin-bottom: 12px;
 }
 
+.subheader {
+  font-size: 1.05em;
+  line-height: 1.6;
+  max-width: 640px;
+  color: var(--text-secondary);
+  margin-top: var(--space-lg);
+}
+
 .divider {
   width: 48px;
   height: 3px;
   background: linear-gradient(90deg, var(--accent), var(--accent-bright));
   border-radius: 2px;
   margin-top: var(--space-md);
+}
+
+.content-card {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg) var(--space-xl);
+  color: var(--text-secondary);
+  transition: border-color var(--transition-base);
+}
+
+.content-card:hover {
+  border-color: var(--border-accent);
+}
+
+.content-card h2 {
+  font-size: 1.1em;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: var(--space-sm);
+}
+
+.content-card p {
+  font-size: 1em;
+  line-height: 1.85;
+}
+
+.content-card p + p {
+  margin-top: 18px;
+}
+
+.highlight {
+  color: var(--accent-bright);
+  font-weight: 600;
+}
+
+.container-sm {
+  max-width: var(--content-sm);
+}
+
+.container-lg {
+  max-width: var(--content-lg);
 }

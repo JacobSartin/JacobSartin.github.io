@@ -28,7 +28,7 @@ export default function AboutPage() {
       </div>
 
       <div className="about-content">
-        <div className="about-card">
+        <div className="content-card">
           <p>
             Hi! I&apos;m <span className="highlight">Jacob Sartin</span>, a
             software developer with a passion for building elegant and efficient
@@ -47,7 +47,7 @@ export default function AboutPage() {
           </p>
         </div>
 
-        <div className="interests">
+        <div className="content-card">
           <h2>Interests &amp; Hobbies</h2>
           <ul className="interests-grid">
             {interests.map((interest) => (

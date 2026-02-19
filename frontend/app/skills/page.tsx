@@ -11,16 +11,17 @@ interface SkillCategory {
   skills: string[];
 }
 
+// TODO make real content
 const skillCategories: SkillCategory[] = [
   {
     icon: "fa-solid fa-code",
     title: "Languages",
-    skills: ["JavaScript / TypeScript", "Python", "Java", "C#", "HTML / CSS"],
+    skills: ["C++", "JavaScript / TypeScript", "Python", "Java", "HTML / CSS"],
   },
   {
     icon: "fa-solid fa-laptop-code",
     title: "Frameworks",
-    skills: ["React", "Node.js", "Express", ".NET", "Flask"],
+    skills: ["React", "Node.js", "Express"],
   },
   {
     icon: "fa-solid fa-database",
@@ -30,7 +31,7 @@ const skillCategories: SkillCategory[] = [
   {
     icon: "fa-solid fa-screwdriver-wrench",
     title: "Tools & DevOps",
-    skills: ["Git / GitHub", "Docker", "AWS", "CI/CD", "Linux"],
+    skills: ["Git / GitHub", "Docker", "Kubernetes", "CI/CD", "Linux"],
   },
   {
     icon: "fa-solid fa-brain",
