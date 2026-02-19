@@ -3,6 +3,7 @@ import Script from "next/script";
 import { JetBrains_Mono } from "next/font/google";
 import Nav from "@/components/Nav";
 import "./globals.css";
+import "./nav.css";
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],

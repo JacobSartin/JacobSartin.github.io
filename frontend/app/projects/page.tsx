@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import ProjectCards from "./ProjectCards";
 import "./projects.css";
+import "./template.css";
+import ProjectCards from "./ProjectCards";
 
 export const metadata: Metadata = {
   title: "Projects",
@@ -8,13 +9,15 @@ export const metadata: Metadata = {
 
 export default function ProjectsPage() {
   return (
-    <section className="projects-container">
-      <h1>Projects</h1>
-      <p className="projects-intro">
-        Explore my portfolio of projects showcasing various technologies and
-        creative solutions. Click on any card to learn more or interact with the
-        project.
-      </p>
+    <section className="container">
+      <div className="header">
+        <h1>Projects</h1>
+        <div className="divider" aria-hidden="true" />
+        <p className="projects-intro">
+          A portfolio of projects showcasing various technologies and creative
+          solutions. Click any card to explore.
+        </p>
+      </div>
       <ProjectCards />
     </section>
   );

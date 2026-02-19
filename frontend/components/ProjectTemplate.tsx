@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import "@/app/projects/projects.css";
 
 interface Props {
@@ -10,12 +11,17 @@ interface Props {
 export default function ProjectTemplate({ title, subtitle, children }: Props) {
   return (
     <section className="projects-container">
-      <h1>{title}</h1>
-      {subtitle && <p className="projects-intro">{subtitle}</p>}
-
-      <div className="about-content" style={{ marginTop: 20 }}>
-        {children}
+      <div className="project-template-header">
+        <Link href="/projects" className="project-back-link">
+          <i className="fa-solid fa-arrow-left" aria-hidden="true" />
+          Projects
+        </Link>
+        <h1>{title}</h1>
+        {subtitle && <p className="project-template-subtitle">{subtitle}</p>}
+        <div className="projects-divider" aria-hidden="true" />
       </div>
+
+      <div className="project-template-content">{children}</div>
     </section>
   );
 }

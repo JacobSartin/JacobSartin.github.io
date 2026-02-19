@@ -20,16 +20,21 @@ export default function Nav() {
 
   return (
     <nav>
-      <div className="nav-links">
-        {navLinks.map((link) => (
-          <Link
-            key={link.href}
-            href={link.href}
-            className={pathname === link.href ? "active" : ""}
-          >
-            {link.label}
-          </Link>
-        ))}
+      <div className="nav-left">
+        <Link href="/" className="nav-brand" aria-label="Home">
+          <span className="nav-brand-name">jacob sartin</span>
+        </Link>
+        <div className="nav-links">
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className={pathname === link.href ? "active" : ""}
+            >
+              {link.label}
+            </Link>
+          ))}
+        </div>
       </div>
       <div className="social-links">
         <a

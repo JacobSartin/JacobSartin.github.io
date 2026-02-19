@@ -28,7 +28,7 @@ const skillCategories: SkillCategory[] = [
     skills: ["PostgreSQL", "MongoDB", "MySQL", "Redis"],
   },
   {
-    icon: "fa-solid fa-tools",
+    icon: "fa-solid fa-screwdriver-wrench",
     title: "Tools & DevOps",
     skills: ["Git / GitHub", "Docker", "AWS", "CI/CD", "Linux"],
   },
@@ -38,16 +38,16 @@ const skillCategories: SkillCategory[] = [
     skills: [
       "REST APIs",
       "Microservices",
-      "Agile/Scrum",
+      "Agile / Scrum",
       "Test-Driven Development",
       "System Design",
     ],
   },
   {
-    icon: "fa-solid fa-pencil",
+    icon: "fa-solid fa-pen-ruler",
     title: "Design",
     skills: [
-      "UI/UX Principles",
+      "UI / UX Principles",
       "Responsive Design",
       "Accessibility (a11y)",
       "Figma",
@@ -57,14 +57,17 @@ const skillCategories: SkillCategory[] = [
 
 export default function SkillsPage() {
   return (
-    <section className="skills-container">
-      <h1>Technical Skills</h1>
+    <section className="container" style={{ maxWidth: "1100px" }}>
+      <div className="header">
+        <h1>Technical Skills</h1>
+        <div className="divider" aria-hidden="true" />
+      </div>
 
       <div className="skills-grid">
         {skillCategories.map((category) => (
           <div key={category.title} className="skill-category">
             <h2>
-              <i className={category.icon} aria-hidden="true" />{" "}
+              <i className={category.icon} aria-hidden="true" />
               {category.title}
             </h2>
             <ul className="skill-list">

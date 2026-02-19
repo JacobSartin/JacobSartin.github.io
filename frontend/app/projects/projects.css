@@ -1,34 +1,32 @@
 /* Projects page styles */
 
-.projects-container {
-  width: 100%;
-  padding: 40px 20px;
-}
-
-.projects-container h1 {
-  font-size: 2.5em;
-  margin-bottom: 20px;
-  color: var(--text-primary);
-  text-align: center;
+/* Stand-alone h1 inside projects-container (e.g. ProjectTemplate) */
+.projects-container > h1 {
+  font-size: clamp(2em, 5vw, 3em);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin-bottom: 12px;
+  max-width: 720px;
 }
 
 .projects-intro {
-  font-size: 1.1em;
+  font-size: 1em;
   line-height: 1.8;
   color: var(--text-secondary);
-  text-align: center;
-  margin-bottom: 40px;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
+  max-width: 640px;
+  margin-top: var(--space-lg);
 }
 
+/* ===================== */
+/* Card Grid             */
+/* ===================== */
 #cards {
   display: grid;
   gap: 8px;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 300px));
+  grid-template-columns: repeat(auto-fill, minmax(240px, 290px));
   justify-content: center;
-  width: calc(100% - 20px);
+  width: 100%;
   max-width: 1540px;
   margin: 0 auto;
 }
@@ -39,12 +37,14 @@
 
 .card {
   background-color: var(--overlay-medium);
-  border-radius: 10px;
+  border-radius: var(--radius-md);
   display: flex;
   flex-direction: column;
   position: relative;
-  height: 260px;
+  height: 250px;
   width: 100%;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .card:hover::before {
@@ -60,14 +60,15 @@
   opacity: 0;
   position: absolute;
   top: 0;
-  transition: opacity 500ms;
+  transition: opacity 400ms ease;
   width: 100%;
+  pointer-events: none;
 }
 
 .card::before {
   background: radial-gradient(
-    800px circle at var(--mouse-x) var(--mouse-y),
-    var(--overlay-light),
+    700px circle at var(--mouse-x) var(--mouse-y),
+    rgb(from var(--accent) r g b / 0.1),
     transparent 40%
   );
   z-index: 3;
@@ -75,8 +76,8 @@
 
 .card::after {
   background: radial-gradient(
-    600px circle at var(--mouse-x) var(--mouse-y),
-    var(--border-hover),
+    500px circle at var(--mouse-x) var(--mouse-y),
+    rgb(from var(--accent) r g b / 0.5),
     transparent 40%
   );
   z-index: 1;
@@ -92,52 +93,77 @@
   padding: 10px;
   position: absolute;
   z-index: 2;
+  transition: background-color 200ms ease;
+}
+
+.card:hover > .card-content {
+  background-color: var(--surface-raised);
 }
 
 .card-image {
   align-items: center;
   display: flex;
-  height: 140px;
+  flex: 1;
+  min-height: 0;
   justify-content: center;
   overflow: hidden;
+  border-radius: 8px 8px 0 0;
 }
 
 .card-image > i {
-  font-size: 6em;
-  opacity: 0.25;
+  font-size: 5em;
+  opacity: 0.18;
+  transition:
+    opacity 200ms ease,
+    transform 200ms ease;
+}
+
+.card:hover .card-image > i {
+  opacity: 0.28;
+  transform: scale(1.08);
 }
 
 .card-info {
   display: grid;
-  justify-content: flex-start;
-  align-items: flex-start;
-  padding: 0 20px;
+  grid-template-columns: 18px 1fr;
+  grid-template-rows: auto auto;
+  align-items: center;
+  padding: 8px 14px 10px;
   gap: 0 10px;
 }
 
 .card-info > i {
   grid-column: 1;
+  grid-row: 1 / 3;
   font-size: 1em;
-  height: 20px;
-  line-height: 20px;
+  color: var(--accent-bright);
+  align-self: center;
 }
 
 .card-info > h3 {
   grid-column: 2;
-  font-size: 1.1em;
-  line-height: 20px;
+  grid-row: 1;
+  font-size: 1em;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--text-primary);
 }
 
 .card-info > h4 {
   grid-column: 2;
-  color: var(--text-secondary);
-  font-size: 0.85em;
-  margin-top: 8px;
+  grid-row: 2;
+  color: var(--text-muted);
+  font-size: 0.78em;
+  font-weight: 400;
+  margin-top: 2px;
 }
 
+/* ===================== */
+/* Responsive            */
+/* ===================== */
 @media (max-width: 936px) {
   #cards {
-    padding: 10px 0;
+    padding: 0;
   }
 }
 
@@ -146,45 +172,33 @@
     height: 180px;
   }
 
-  .card-image {
-    height: 80px;
-  }
-
   .card-image > i {
-    font-size: 3em;
+    font-size: 3.5em;
   }
 
   .card-info {
-    padding: 0 10px;
-  }
-
-  .card-info > i {
-    font-size: 0.8em;
+    padding: 6px 10px 8px;
   }
 
   .card-info > h3 {
-    font-size: 0.9em;
+    font-size: 0.88em;
   }
 
   .card-info > h4 {
-    font-size: 0.8em;
-    margin-top: 4px;
-  }
-}
-
-@media (max-width: 320px) {
-  .card {
-    width: 100%;
+    font-size: 0.74em;
   }
 }
 
 @media (max-width: 600px) {
-  .projects-container h1 {
-    font-size: 2em;
+  .projects-container {
+    padding: var(--space-lg) var(--space-md);
   }
 
   .projects-intro {
-    font-size: 1em;
-    padding: 0 10px;
+    font-size: 0.92em;
+  }
+
+  #cards {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
   }
 }

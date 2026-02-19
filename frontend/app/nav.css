@@ -1,0 +1,127 @@
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: rgb(from var(--bg-primary) r g b / 0.75);
+  backdrop-filter: blur(16px) saturate(1.4);
+  -webkit-backdrop-filter: blur(16px) saturate(1.4);
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 12px 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.nav-brand {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.nav-brand-name {
+  font-family: var(--font-mono);
+  font-size: 0.95em;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+  background: var(--accent-bright);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.nav-links {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.nav-links a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  padding: 7px 14px;
+  border-radius: var(--radius-sm);
+  transition:
+    color 180ms ease,
+    background-color 180ms ease;
+  font-size: 0.88em;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.nav-links a:hover {
+  color: var(--text-primary);
+  background-color: var(--overlay-light);
+}
+
+.nav-links a.active {
+  color: var(--text-primary);
+  background-color: var(--accent-muted);
+  box-shadow: 0 0 12px var(--accent-glow);
+}
+
+.social-links {
+  display: flex;
+  gap: 8px;
+}
+
+.social-links .fa-linkedin {
+  color: #0077b5;
+}
+
+@media (max-width: 768px) {
+  nav {
+    padding: 12px 16px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .nav-left {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .nav-links {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .nav-links a {
+    padding: 8px 12px;
+    font-size: 0.82em;
+  }
+
+  .social-links {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 500px) {
+  nav {
+    padding: 10px 12px;
+  }
+
+  .nav-links {
+    gap: 4px;
+  }
+
+  .nav-links a {
+    padding: 7px 10px;
+    font-size: 0.8em;
+  }
+
+  .link {
+    padding: 7px 13px;
+    font-size: 0.82em;
+  }
+}
