@@ -57,14 +57,12 @@ const cards: CardData[] = [
     subtitle: "A playful demo",
     icon: "fa-chess-knight",
     iconStyle: iconStyle.solid,
-    slug: "unicorns",
   },
   {
     title: "Otters",
     subtitle: "Cute little animals",
     icon: "fa-otter",
     iconStyle: iconStyle.solid,
-    slug: "otters",
   },
   {
     title: "Adios",
