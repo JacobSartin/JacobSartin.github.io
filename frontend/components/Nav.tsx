@@ -18,11 +18,12 @@ const navLinks: NavLink[] = [
 
 export default function Nav() {
   const pathname = usePathname();
+  const normalizedPath = pathname.replace(/\/+$/, "") || "/";
 
   return (
     <nav>
       <div className="nav-left">
-        <Link href="/" className="nav-brand" aria-label="Home">
+        <Link href="/" className="nav-brand" aria-label="Home" tabIndex={-1}>
           <span className="nav-brand-name">jacob sartin</span>
         </Link>
         <div className="nav-links">
@@ -30,7 +31,7 @@ export default function Nav() {
             <Link
               key={link.href}
               href={link.href}
-              className={pathname === link.href ? "active" : ""}
+              className={normalizedPath === link.href ? "active" : ""}
             >
               {link.label}
             </Link>
