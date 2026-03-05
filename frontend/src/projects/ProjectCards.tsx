@@ -1,4 +1,3 @@
-"use client";
 import Card, { CardData, iconStyle } from "@/components/Card";
 import { useCallback, type MouseEvent } from "react";
 
@@ -33,11 +32,11 @@ const cards: CardData[] = [
     slug: "smesh-vpn",
   },
   {
-    title: "This Page",
+    title: "This Site",
     subtitle: "About this website",
     icon: "fa-file",
     iconStyle: iconStyle.solid,
-    slug: "this-page",
+    slug: "this-site",
   },
   {
     title: "Copy",

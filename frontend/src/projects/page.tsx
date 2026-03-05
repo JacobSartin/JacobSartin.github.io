@@ -1,11 +1,6 @@
-import type { Metadata } from "next";
 import "./projects.css";
 import "./template.css";
 import ProjectCards from "./ProjectCards";
-
-export const metadata: Metadata = {
-  title: "Projects",
-};
 
 export default function ProjectsPage() {
   return (

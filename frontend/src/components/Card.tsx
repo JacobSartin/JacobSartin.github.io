@@ -1,18 +1,19 @@
-"use client";
-import Link from "next/link";
-import "@/app/projects/projects.css";
+import { Link } from "@tanstack/react-router";
+import "@/projects/projects.css";
 
 export enum iconStyle {
   solid = "fa-solid",
   regular = "fa-regular",
 }
 
+type ProjectSlug = "3d-renderer" | "cluster" | "smesh-vpn" | "this-site";
+
 export type CardData = {
   icon: string;
   iconStyle?: iconStyle; // "fa-solid" | "fa-regular"
   title: string;
   subtitle: string;
-  slug?: string;
+  slug?: ProjectSlug;
   handleClick?: () => void;
 };
 
@@ -42,7 +43,7 @@ export default function Card({
   // If the card maps to a project slug, render a link to that project
   if (slug) {
     return (
-      <Link key={title} href={`/projects/${slug}`} className="card">
+      <Link key={title} to={`/projects/${slug}`} className="card">
         {content}
       </Link>
     );

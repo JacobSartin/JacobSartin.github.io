@@ -1,9 +1,4 @@
-import type { Metadata } from "next";
 import "./skills.css";
-
-export const metadata: Metadata = {
-  title: "Skills",
-};
 
 interface SkillCategory {
   icon: string;

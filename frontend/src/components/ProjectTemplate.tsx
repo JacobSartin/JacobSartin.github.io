@@ -1,6 +1,6 @@
 import React from "react";
-import Link from "next/link";
-import "@/app/projects/projects.css";
+import { Link } from "@tanstack/react-router";
+import "@/projects/projects.css";
 
 interface Props {
   title: string;
@@ -12,7 +12,7 @@ export default function ProjectTemplate({ title, subtitle, children }: Props) {
   return (
     <section className="container">
       <div className="header">
-        <Link href="/projects" className="project-back-link">
+        <Link to="/projects" className="project-back-link">
           <i className="fa-solid fa-arrow-left" aria-hidden="true" />
           Projects
         </Link>

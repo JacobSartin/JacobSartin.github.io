@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "@tanstack/react-router";
 import "./home.css";
 
 export default function HomePage() {
@@ -23,11 +23,11 @@ export default function HomePage() {
           culpa qui officia deserunt mollit anim id est laborum."
         </p>
         <div className="cta-buttons">
-          <Link href="/projects" className="cta-button">
+          <Link to="/projects" className="cta-button">
             <i className="fa-solid fa-folder-open" aria-hidden="true" />
             View Projects
           </Link>
-          <Link href="/about" className="cta-button secondary">
+          <Link to="/about" className="cta-button secondary">
             <i className="fa-solid fa-user" aria-hidden="true" />
             About Me
           </Link>

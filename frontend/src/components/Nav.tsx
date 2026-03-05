@@ -1,7 +1,4 @@
-"use client";
-
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { Link, useLocation } from "@tanstack/react-router";
 import ThemeToggle from "./ThemeToggle";
 
 interface NavLink {
@@ -17,20 +14,20 @@ const navLinks: NavLink[] = [
 ];
 
 export default function Nav() {
-  const pathname = usePathname();
+  const pathname = useLocation({ select: (location) => location.pathname });
   const normalizedPath = pathname.replace(/\/+$/, "") || "/";
 
   return (
     <nav>
       <div className="nav-left">
-        <Link href="/" className="nav-brand" aria-label="Home" tabIndex={-1}>
+        <Link to="/" className="nav-brand" aria-label="Home" tabIndex={-1}>
           <span className="nav-brand-name">jacob sartin</span>
         </Link>
         <div className="nav-links">
           {navLinks.map((link) => (
             <Link
               key={link.href}
-              href={link.href}
+              to={link.href}
               className={normalizedPath === link.href ? "active" : ""}
             >
               {link.label}

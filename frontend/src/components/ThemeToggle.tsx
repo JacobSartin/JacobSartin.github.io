@@ -1,5 +1,3 @@
-"use client";
-
 import { useEffect, useState, useCallback } from "react";
 
 type Theme = "light" | "dark";
@@ -21,7 +19,8 @@ export default function ThemeToggle() {
   // On mount: read stored preference or fall back to system preference
   useEffect(() => {
     const stored = localStorage.getItem("theme") as Theme | null;
-    const resolved = stored === "light" || stored === "dark" ? stored : getSystemTheme();
+    const resolved =
+      stored === "light" || stored === "dark" ? stored : getSystemTheme();
     setTheme(resolved);
     applyTheme(resolved);
     setMounted(true);

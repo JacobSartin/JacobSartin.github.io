@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "@tanstack/react-router";
 import "./not-found.css";
 
 export default function NotFound() {
@@ -13,11 +13,11 @@ export default function NotFound() {
           Page not found. The path you followed doesn&apos;t exist.
         </p>
         <div className="not-found-actions">
-          <Link href="/" className="cta-button">
+          <Link to="/" className="cta-button">
             <i className="fa-solid fa-house" aria-hidden="true" />
             Go Home
           </Link>
-          <Link href="/projects" className="cta-button secondary">
+          <Link to="/projects" className="cta-button secondary">
             <i className="fa-solid fa-folder-open" aria-hidden="true" />
             View Projects
           </Link>
